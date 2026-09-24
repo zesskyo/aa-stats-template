@@ -1,11 +1,11 @@
 # AA No Reset stats website
 
-Make your own stats website for All Advancements No Reset runs, like
-[Zesskyo's](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/): splits, a progress graph for every run,
+Make your own stats website for 1.16.1 All Advancements Runs, like
+[Zesskyo's AA No Reset Log](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/): splits, a progress graph for every run,
 average stats, and a Compare page. It's free, runs on GitHub, and needs nothing installed.
 
 Your website only ever holds your runs. The code comes from [aa-stats](https://github.com/zesskyo/aa-stats),
-so **new features show up on your site by themselves** (within a day).
+so **new features show up on your site automatically**.
 
 ## Set it up (about 5 minutes, once)
 

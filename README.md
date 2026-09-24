@@ -36,15 +36,3 @@ Click **Save**, and the site updates by itself about a minute later. Every run's
 which also lets you delete it. **Site settings** (at the bottom of the site) changes the title later on.
 
 Visitors only see a small "Owner sign in" link. Without your token, GitHub won't let anyone else save.
-
-## Good to know
-
-- **Updates:** your site rebuilds once a day with the latest code, and whenever you save something.
-  To update right away: **Actions → Build and publish the site → Run workflow**. GitHub pauses the daily build
-  after 60 days without changes; saving a run or clicking Run workflow starts it again.
-- **Signing in on another device or browser:** GitHub only shows a token once, so make another one the same way
-  and sign in with it there.
-  To stop a token working, delete it under GitHub **Settings → Developer settings → Personal access tokens**.
-- **Undo:** every save is a normal change in this repository, so anything can be undone from its history.
-- **Staying on one version of the code:** in `.github/workflows/deploy.yml`, change `ref: main` to a commit
-  from aa-stats.

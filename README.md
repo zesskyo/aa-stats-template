@@ -34,5 +34,3 @@ Signed in on your site, click **+ Add run** at the top:
 
 Click **Save**, and the site updates by itself about a minute later. Every run's page has an **Edit** button,
 which also lets you delete it. **Site settings** (at the bottom of the site) changes the title later on.
-
-Visitors only see a small "Owner sign in" link. Without your token, GitHub won't let anyone else save.

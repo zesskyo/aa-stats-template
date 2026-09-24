@@ -26,11 +26,11 @@ The code comes from [aa-stats](https://github.com/zesskyo/aa-stats), so new feat
 Signed in on your site, click **+ Add run** at the top:
 
 - **With a Hermes log:** drop in the run's `play.log`. The date, time, 100% and deaths are read from it.
-  Tick the deaths that were on purpose, and add a seed, video, screenshot or notes.
+  Tick the deaths that were on purpose, and add a seed, proof or notes.
 - **Without a log** (older runs, or not played with Hermes): fill in whatever you have, like the final time,
   whether it was 100%, splits and the date. It all shows on the site; the graphs need a log.
-- **Proof:** a video link, a screenshot, or both.
+- **Proof:** a video link or a screenshot (a link, or upload the image).
 - **Elytra distance:** type it in, or pick the world's `stats/<uuid>.json` file.
 
-Click **Save**, and the site updates by itself about a minute later. Every run's page has an **Edit** button,
-which also lets you delete it. **Site settings** (at the bottom of the site) changes the title later on.
+Click **Save**, and the site updates by itself about a minute later. To change a run, pick it at the top of
+the form (or use **Edit** on its page); that's also where you delete it. **Site settings** (at the bottom of the site) changes the title later on.

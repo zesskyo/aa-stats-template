@@ -24,7 +24,20 @@ so **new features show up on your site automatically** (within a day).
 4. Go to the **Actions** tab and wait for **Build and publish the site** to go green (about a minute).
    Your site is at `https://<your-username>.github.io/<repository-name>/`.
 
-## Add a run
+## Add runs from your website (easiest)
+
+Once your site is up, you can add, edit and delete runs on the site itself:
+
+1. At the bottom of your site, click **Owner sign in** and follow the steps there. You make a GitHub
+   token that can only save to this repository, and paste it in once. It stays in that browser only.
+2. Click **+ Add run**: drop in the Hermes log (or fill in the time and splits if there's no log), tick
+   which deaths were on purpose, and add a video, screenshot or notes. Click **Save**.
+3. The site updates by itself about a minute later. Each run's page also gets an **Edit** button.
+
+Visitors don't see any of this, and without your token GitHub won't let anyone else save. Logs over
+25 MB work here too.
+
+## Add a run by uploading files
 
 1. Open the `logs` folder, click **Add file → Upload files**, and upload the run's Hermes `play.log`
    renamed to the run number: `1.log`, then `2.log`, …

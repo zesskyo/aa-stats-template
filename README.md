@@ -1,20 +1,18 @@
-# AA No Reset stats website
+# AA No Reset Stats Website
 
 Make your own stats website for 1.16.1 All Advancements Runs, like
-[Zesskyo's AA No Reset Log](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/): splits, a progress graph for every run,
-average stats, and a Compare page. It's free, runs on GitHub, and needs nothing installed.
+[Zesskyo's AA No Reset Log](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/)
 
-Your website only ever holds your runs. The code comes from [aa-stats](https://github.com/zesskyo/aa-stats),
-so **new features show up on your site automatically**.
+The code comes from [aa-stats](https://github.com/zesskyo/aa-stats), so new features show up on your site **automatically**.
 
-## Set it up (about 5 minutes, once)
+## Setup
 
 1. **Copy this template.** At the top of this page click **Use this template → Create a new repository**.
    Pick any name (it becomes part of your site's address, e.g. `aa-stats`) and keep it **Public**.
 2. **Turn on the website.** In your new repository go to **Settings → Pages**, and under
    **Build and deployment → Source** choose **GitHub Actions**.
 3. **Build it for the first time.** Go to the **Actions** tab, click **Build and publish the site** on the left,
-   then **Run workflow → Run workflow**. Wait for the green tick (about a minute).
+   then **Run workflow → Run workflow**. Wait for the green tick.
 4. **Open your site** at `https://<your-username>.github.io/<repository-name>/`
    (also shown under **Settings → Pages**).
 5. **Click "Set up this site"** on the welcome card. It walks you through:
@@ -22,8 +20,6 @@ so **new features show up on your site automatically**.
      The steps are on screen. The token stays in your browser, and only you can edit your site.
    - **Naming your site**: type your title and subtitle, e.g. *AA No Reset Solo* and *(Your Name's Log)*.
    - **Adding your first run** (see below).
-
-That's it. From then on everything happens on your site.
 
 ## Add, edit and delete runs
 
@@ -52,37 +48,3 @@ Visitors only see a small "Owner sign in" link. Without your token, GitHub won't
 - **Undo:** every save is a normal change in this repository, so anything can be undone from its history.
 - **Staying on one version of the code:** in `.github/workflows/deploy.yml`, change `ref: main` to a commit
   from aa-stats.
-
-## Doing it by hand (optional)
-
-Everything the site saves is a plain file in this repository, so you can also edit them on github.com:
-
-- `site.json`: the title and subtitle. Any other wording on the site can be changed here too: copy a name from
-  [text.js](https://github.com/zesskyo/aa-stats/blob/main/src/text.js), e.g. `"colTime": "Time"`.
-- `logs/<N>.log`: the Hermes log for run N (uploads on github.com are limited to 25 MB; the site has no limit).
-  `logs/<N>.stats.json`: the world's stats file, for elytra distance.
-- `screenshots/`: screenshots.
-- `runs.json`: details for each run, for example:
-  ```json
-  {
-    "1": {
-      "date": "2026-09-24",
-      "seed": "-6932149389784936231",
-      "video": "https://youtu.be/...",
-      "screenshot": "screenshots/1.png",
-      "notes": "Jungle spawn, good nether…",
-      "intentionalDeaths": [1, 2]
-    },
-    "2": {
-      "time": "3:41:22",
-      "hundred": true,
-      "splits": {"Any%": "0:38:13", "Midgame": "1:02:49", "Endgame": "3:13:34", "Post-endgame": "3:30:00"}
-    }
-  }
-  ```
-  - `intentionalDeaths` lists death numbers (1st, 2nd, …) that were on purpose. Deaths after The End... Again...
-    count as on purpose automatically, and `notIntentionalDeaths` overrides that.
-  - `time`, `hundred` and `splits` are only for runs without a log.
-  - Splits are the time on the clock: when Any% ended, and when Midgame, Endgame and Post-endgame started.
-- `icons/`: a `.png` with the same name as a built-in icon
-  ([list](https://github.com/zesskyo/aa-stats/tree/main/icons)) replaces it on your site.

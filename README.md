@@ -1,103 +1,88 @@
 # AA No Reset stats website
 
-Make your own stats website for 1.16.1 All Advancements Runs, like
-[Zesskyo's AA No Reset Log](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/). Everything happens on github.com,
-with nothing to install.
+Make your own stats website for All Advancements No Reset runs, like
+[Zesskyo's](https://zesskyo.github.io/aa-stats-no-reset-zesskyo-log/): splits, a progress graph for every run,
+average stats, and a Compare page. It's free, runs on GitHub, and needs nothing installed.
 
-Your website keeps only your runs. The code comes from [aa-stats](https://github.com/zesskyo/aa-stats),
-so **new features show up on your site automatically**.
+Your website only ever holds your runs. The code comes from [aa-stats](https://github.com/zesskyo/aa-stats),
+so **new features show up on your site by themselves** (within a day).
 
-## Set it up (once)
+## Set it up (about 5 minutes, once)
 
-1. At the top of this page, click **Use this template → Create a new repository**.
-   Give it any name (e.g. `aa-stats`) and keep it **Public**.
-2. In your new repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Open `site.json`, click the pencil, and put your name in:
-   ```json
-   {
-     "siteTitle": "AA No Reset Solo",
-     "siteSubtitle": "(Your Name's Log)"
-   }
-   ```
-   Click **Commit changes**. Any other words on the site can be changed here too: copy a name from
-   [text.js](https://github.com/zesskyo/aa-stats/blob/main/src/text.js), e.g. `"colTime": "Time"`.
-4. Go to the **Actions** tab and wait for **Build and publish the site** to go green (about a minute).
-   Your site is at `https://<your-username>.github.io/<repository-name>/`.
+1. **Copy this template.** At the top of this page click **Use this template → Create a new repository**.
+   Pick any name (it becomes part of your site's address, e.g. `aa-stats`) and keep it **Public**.
+2. **Turn on the website.** In your new repository go to **Settings → Pages**, and under
+   **Build and deployment → Source** choose **GitHub Actions**.
+3. **Build it for the first time.** Go to the **Actions** tab, click **Build and publish the site** on the left,
+   then **Run workflow → Run workflow**. Wait for the green tick (about a minute).
+4. **Open your site** at `https://<your-username>.github.io/<repository-name>/`
+   (also shown under **Settings → Pages**).
+5. **Click "Set up this site"** on the welcome card. It walks you through:
+   - **Signing in**: you make a GitHub token that can only save to this one repository and paste it in once.
+     The steps are on screen. The token stays in your browser, and only you can edit your site.
+   - **Naming your site**: type your title and subtitle, e.g. *AA No Reset Solo* and *(Your Name's Log)*.
+   - **Adding your first run** (see below).
 
-## Add runs from your website (easiest)
+That's it. From then on everything happens on your site.
 
-Once your site is up, you can add, edit and delete runs on the site itself:
+## Add, edit and delete runs
 
-1. At the bottom of your site, click **Owner sign in** and follow the steps there. You make a GitHub
-   token that can only save to this repository, and paste it in once. It stays in that browser only.
-2. Click **+ Add run**: drop in the Hermes log (or fill in the time and splits if there's no log), tick
-   which deaths were on purpose, and add a video, screenshot or notes. Click **Save**.
-3. The site updates by itself about a minute later. Each run's page also gets an **Edit** button.
+Signed in on your site, click **+ Add run** at the top:
 
-Visitors don't see any of this, and without your token GitHub won't let anyone else save. Logs over
-25 MB work here too.
+- **With a Hermes log:** drop in the run's `play.log`. The date, time, 100% and deaths are read from it.
+  Tick the deaths that were on purpose, and add a seed, video, screenshot or notes.
+- **Without a log** (older runs, or not played with Hermes): fill in whatever you have, like the final time,
+  whether it was 100%, splits and the date. It all shows on the site; the graphs need a log.
+- **Proof:** a video link, a screenshot, or both.
+- **Elytra distance:** type it in, or pick the world's `stats/<uuid>.json` file.
 
-## Add a run by uploading files
+Click **Save**, and the site updates by itself about a minute later. Every run's page has an **Edit** button,
+which also lets you delete it. **Site settings** (at the bottom of the site) changes the title later on.
 
-1. Open the `logs` folder, click **Add file → Upload files**, and upload the run's Hermes `play.log`
-   renamed to the run number: `1.log`, then `2.log`, …
-   (GitHub uploads are limited to 25 MB per file.)
-2. Optional: for elytra distance, also upload the world's `stats/<uuid>.json` as `1.stats.json`.
-3. Optional: add details in `runs.json`:
-   ```json
-   {
-     "1": {
-       "date": "2026-09-24",
-       "seed": "-6932149389784936231",
-       "video": "https://youtu.be/...",
-       "notes": "Jungle spawn, good nether…",
-       "intentionalDeaths": [1, 2]
-     }
-   }
-   ```
-   `intentionalDeaths` are death numbers (1st, 2nd, …) that shouldn't count as real deaths. Deaths after
-   The End... Again... are counted as intentional automatically; `notIntentionalDeaths` overrides that.
-   `elytraKm` sets elytra distance by hand if you don't have the stats file.
-
-The site rebuilds by itself after every change (see the **Actions** tab).
-
-## A run without a Hermes log
-
-Just add it to `runs.json` with whatever you have. Everything is optional:
-
-```json
-{
-  "5": {
-    "time": "3:41:22",
-    "date": "2025-03-14",
-    "seed": "-957945081170232430",
-    "hundred": true,
-    "splits": {"Any%": "0:38:13", "Midgame": "1:02:49", "Endgame": "3:13:34", "Post-endgame": "3:30:00"},
-    "video": "https://youtu.be/...",
-    "screenshot": "screenshots/5.png",
-    "notes": "Before I used Hermes."
-  }
-}
-```
-
-- `time` is the final IGT, like `3:41:22` or `3:41:22.629`.
-- `hundred`: `true` if it was 100% (80/80, with Very Very Frightening), `false` if not. Leave it out if you don't know.
-- `splits` are the times on the clock: when Any% ended, and when Midgame, Endgame and Post-endgame started.
-
-The run shows in the runs table, the PB and on its own page. There are no graphs or stats for it,
-since those come from the log. Average stats only use runs with a log.
-
-## A screenshot as proof
-
-For any run, with or without a log: upload the image (e.g. into a `screenshots` folder) and add
-`"screenshot": "screenshots/5.png"` to that run in `runs.json`. It shows on the run's page, with a camera
-button next to the run in the runs table. A link to an image (`"https://…"`) works too.
+Visitors only see a small "Owner sign in" link. Without your token, GitHub won't let anyone else save.
 
 ## Good to know
 
-- **Updates:** your site rebuilds once a day with the latest code. To update right away, go to
-  **Actions → Build and publish the site → Run workflow**. GitHub pauses the daily build after 60 days with
-  no changes in your repository; adding a run or clicking Run workflow turns it back on.
-- **Staying on one version:** in `.github/workflows/deploy.yml`, change `ref: main` to a commit from
-  aa-stats.
-- **Your own icons:** see the `icons` folder.
+- **Updates:** your site rebuilds once a day with the latest code, and whenever you save something.
+  To update right away: **Actions → Build and publish the site → Run workflow**. GitHub pauses the daily build
+  after 60 days without changes; saving a run or clicking Run workflow starts it again.
+- **Signing in on another device or browser:** GitHub only shows a token once, so make another one the same way
+  and sign in with it there.
+  To stop a token working, delete it under GitHub **Settings → Developer settings → Personal access tokens**.
+- **Undo:** every save is a normal change in this repository, so anything can be undone from its history.
+- **Staying on one version of the code:** in `.github/workflows/deploy.yml`, change `ref: main` to a commit
+  from aa-stats.
+
+## Doing it by hand (optional)
+
+Everything the site saves is a plain file in this repository, so you can also edit them on github.com:
+
+- `site.json`: the title and subtitle. Any other wording on the site can be changed here too: copy a name from
+  [text.js](https://github.com/zesskyo/aa-stats/blob/main/src/text.js), e.g. `"colTime": "Time"`.
+- `logs/<N>.log`: the Hermes log for run N (uploads on github.com are limited to 25 MB; the site has no limit).
+  `logs/<N>.stats.json`: the world's stats file, for elytra distance.
+- `screenshots/`: screenshots.
+- `runs.json`: details for each run, for example:
+  ```json
+  {
+    "1": {
+      "date": "2026-09-24",
+      "seed": "-6932149389784936231",
+      "video": "https://youtu.be/...",
+      "screenshot": "screenshots/1.png",
+      "notes": "Jungle spawn, good nether…",
+      "intentionalDeaths": [1, 2]
+    },
+    "2": {
+      "time": "3:41:22",
+      "hundred": true,
+      "splits": {"Any%": "0:38:13", "Midgame": "1:02:49", "Endgame": "3:13:34", "Post-endgame": "3:30:00"}
+    }
+  }
+  ```
+  - `intentionalDeaths` lists death numbers (1st, 2nd, …) that were on purpose. Deaths after The End... Again...
+    count as on purpose automatically, and `notIntentionalDeaths` overrides that.
+  - `time`, `hundred` and `splits` are only for runs without a log.
+  - Splits are the time on the clock: when Any% ended, and when Midgame, Endgame and Post-endgame started.
+- `icons/`: a `.png` with the same name as a built-in icon
+  ([list](https://github.com/zesskyo/aa-stats/tree/main/icons)) replaces it on your site.

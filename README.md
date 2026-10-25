@@ -27,6 +27,9 @@ Signed in on your site, click **+ Add run** at the top:
 
 - **With a Hermes log:** drop in the run's `play.log`. The date, time, 100% and deaths are read from it.
   Tick the deaths that were on purpose, and add a seed, proof or notes.
+  Use **Hermes 0.14 or newer**: older versions don't log the biome you're in, so the Midgame checklist's biome splits
+  and the Midgame distribution can't be worked out from the log. For runs already played on an older Hermes, add the
+  run's **seed** and its **ghost file** (in the world's `hermes/ghosts` folder): the biomes are then worked out from those.
 - **Without a log** (older runs, or not played with Hermes): fill in whatever you have, like the final time,
   whether it was 100%, splits and the date. It all shows on the site; the graphs need a log.
 - **Proof:** a video link or a screenshot (a link, or upload the image).
